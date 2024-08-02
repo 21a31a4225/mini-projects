@@ -1,0 +1,23 @@
+from PIL import Image
+
+def convert_to_grayscale(image_path):
+   
+    with Image.open(image_path) as img:
+        
+        grayscale_img = img.convert('L')
+
+       
+        grayscale_img.save('grayscale_' + image_path)
+
+def main():
+    print("Grayscale Image Converter")
+    print("----------------------------")
+
+    image_path = input("Enter the image file path: ")
+
+    convert_to_grayscale(image_path)
+
+    print("\nGrayscale image saved as 'grayscale_" + image_path + "'")
+
+if __name__ == "__main__":
+    main()

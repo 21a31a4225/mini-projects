@@ -1,0 +1,40 @@
+def flames(name1, name2):
+    
+    name1 = name1.replace(" ", "").lower()
+    name2 = name2.replace(" ", "").lower()
+
+    
+    common_letters = set(name1) & set(name2)
+    count = sum(min(name1.count(letter), name2.count(letter)) for letter in common_letters)
+
+    
+    flames_result = ["F", "L", "A", "M", "E", "S"]
+    index = (len(name1) + len(name2) - count) % 6
+
+    return flames_result[index]
+
+def main():
+    print("FLAMES Game")
+    print("-----------")
+
+    name1 = input("Enter the first name: ")
+    name2 = input("Enter the second name: ")
+
+    result = flames(name1, name2)
+
+    print("\nResult:")
+    if result == "F":
+        print("Friends")
+    elif result == "L":
+        print("Lovers")
+    elif result == "A":
+        print("Affection")
+    elif result == "M":
+        print("Marriage")
+    elif result == "E":
+        print("Enemies")
+    elif result == "S":
+        print("Siblings")
+
+if __name__ == "__main__":
+    main()
